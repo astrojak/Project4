@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Project4_JakeWarren {
+
+	public static void main(String[] args) {
+
+		String answer;
+				
+		Scanner keyboard = new Scanner(System.in);
+		
+		System.out.println("Welcome to the Cat Age Estimator!");
+		System.out.println("Does the cat have all of their adult teeth? (Y/N)");
+		
+		answer = keyboard.nextLine();
+		
+		if (answer.equals("y")) {
+			System.out.print("it worked!");											//Cat Aging
+		}
+		else if (answer.equals("n")) {												//Kitten Aging 
+			int teeth;
+			int weight;
+			int kittenTeeth = 0;
+			String moreCats;
+							
+			System.out.println("What best describes the cat's baby teeth?");
+			System.out.println("0) No teeth visible");
+			System.out.println("1) A few teeth visible");
+			System.out.println("2) Pre-molars visible");
+			System.out.println("3) Molars visible");
+			
+			teeth = keyboard.nextInt();
+						
+			if (teeth == 0) {
+				kittenTeeth = 0;
+			}
+			else if (teeth == 1) {
+				kittenTeeth = 2;
+			}
+			else if (teeth == 2) {
+				kittenTeeth = 6;
+			}
+			else if (teeth == 3) {
+				kittenTeeth = 16;
+			}
+			System.out.println("Estimated age based on teeth: " + kittenTeeth);
+			System.out.println("What is the cat's weight?");
+			
+			weight = keyboard.nextInt();
+			weight = weight * 2;
+			
+			System.out.println("Estimated age based on weight: " + weight);
+			System.out.println("Are there other cats from the same litter? (Y/N)");
+			
+			moreCats = keyboard.nextLine();													//program not allowing input of y or n
+			
+			if (moreCats.equals("y")) {
+				System.out.println("TEST You said yes");
+			}
+			else if (moreCats.equals("n")) {
+				System.out.println("Estimated age of the kitten(s): " + ((kittenTeeth + weight) / 2));
+			}
+		}						
+	}
+}
